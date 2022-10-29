@@ -43,6 +43,7 @@ call plug#end()
 
 "**** basic vim settings ****
 set signcolumn=yes
+set number
 set relativenumber
 " map leader to Space
 let mapleader = " "
