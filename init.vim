@@ -19,7 +19,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " node extension host, language server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-rust-analyzer', 'coc-pyright']
 
 " git integration
 Plug 'airblade/vim-gitgutter'
