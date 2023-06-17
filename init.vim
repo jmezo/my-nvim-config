@@ -83,6 +83,12 @@ autocmd Filetype go setlocal ts=8 sw=8 sts=0 expandtab
 
 
 
+"**** terraform syntax highlighting ****
+" for some reason the terraform syntax highlighting doesn't get loaded automatically
+autocmd BufNewFile,BufRead *.tf set syntax=tf
+
+
+
 " *** fzf config ***
 " find files (tracked by git)
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git/"'
