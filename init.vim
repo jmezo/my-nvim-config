@@ -21,6 +21,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " CocUpdate - update coc extensions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-rust-analyzer', 'coc-pyright']
+" how to install and use terraform language server with coc:
+" https://github.com/hashicorp/terraform-ls/blob/main/README.md
 
 " git integration
 Plug 'airblade/vim-gitgutter'
