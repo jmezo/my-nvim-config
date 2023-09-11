@@ -55,6 +55,7 @@ lazy.setup({
 			"MunifTanjim/nui.nvim",
 		}
 	},
+	{ 'fatih/vim-go' },
 })
 
 require('gitsigns').setup()
@@ -171,7 +172,8 @@ require('mason-lspconfig').setup({
 		'tsserver',
 		'eslint',
 		'html',
-		'cssls'
+		'cssls',
+		'gopls',
 	},
 	handlers = {
 		function(server)
