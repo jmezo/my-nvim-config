@@ -19,11 +19,11 @@ return {
         end,
       },
       sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          -- TODO what do these do?
-          -- { name = "luasnip" },
-          -- { name = 'buffer' },
-          -- { name = "path" },
+        { name = 'nvim_lsp' },
+        -- TODO what do these do?
+        -- { name = "luasnip" },
+        -- { name = 'buffer' },
+        -- { name = "path" },
       }),
       mapping = cmp.mapping.preset.insert({
         ['<C-Space>'] = cmp.mapping.complete(),

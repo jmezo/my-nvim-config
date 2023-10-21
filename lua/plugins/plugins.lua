@@ -1,8 +1,8 @@
 return {
-	{ 'tpope/vim-commentary' },
-	{ 'tpope/vim-surround' },
-	{ 'tpope/vim-fugitive' },
-	{
+  { 'tpope/vim-commentary' },
+  { 'tpope/vim-surround' },
+  { 'tpope/vim-fugitive' },
+  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
@@ -19,15 +19,15 @@ return {
     keys = {
       {
         "<leader>b",
-        function ()
-          require("neo-tree.command").execute({toggle = true})
+        function()
+          require("neo-tree.command").execute({ toggle = true })
         end,
       },
     },
   },
   {
-		'nvim-telescope/telescope.nvim',
-		dependencies = { 'nvim-lua/plenary.nvim' },
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       local builtin = require('telescope.builtin')
       vim.keymap.set('n', '<leader>p', builtin.find_files, {})
@@ -37,5 +37,5 @@ return {
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
       vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
     end,
-	},
+  },
 }
