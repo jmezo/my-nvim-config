@@ -3,8 +3,14 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require('lspconfig')
+
+      -- npm install -g typescript-language-server typescript
       lspconfig.tsserver.setup {}
 
+      -- brew install rust-analyzer
+      lspconfig.rust_analyzer.setup {}
+
+      -- brew install lua-language-server
       lspconfig.lua_ls.setup {
         settings = {
           Lua = {
