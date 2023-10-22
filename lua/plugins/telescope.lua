@@ -2,6 +2,16 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
+
+    -- search for hidden files and dirs
+    require('telescope').setup({
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      },
+    })
+
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>p', builtin.find_files, {})
     vim.keymap.set('n', '<leader>rg', builtin.live_grep, {})
