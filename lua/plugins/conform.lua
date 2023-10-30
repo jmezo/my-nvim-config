@@ -38,9 +38,10 @@ return {
         lua = { "stylua" },
         -- Conform will run multiple formatters sequentially
         python = { "isort", "black" },
-        -- Use a sub-list to run only the first available formatter
+        -- Use a sub-list to run only the first available formatter {{}}
         javascript = { "prettier" },
         typescript = { "prettier" },
+        go = { "gofmt", "goimports" },
       },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable

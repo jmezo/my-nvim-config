@@ -10,6 +10,8 @@ return {
       -- brew install rust-analyzer
       lspconfig.rust_analyzer.setup {}
 
+      lspconfig.gopls.setup {}
+
       -- brew install lua-language-server
       lspconfig.lua_ls.setup {
         settings = {
