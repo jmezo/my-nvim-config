@@ -2,7 +2,6 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
-
     -- search for hidden files and dirs
     require('telescope').setup({
       pickers = {
@@ -13,6 +12,8 @@ return {
     })
 
     local builtin = require('telescope.builtin')
+    -- ctrl + q to send all files to quickfix
+    -- option + q to send selected files to quickfix
     vim.keymap.set('n', '<leader>p', builtin.find_files, {})
     vim.keymap.set('n', '<leader>rg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>rr', builtin.grep_string, {})
