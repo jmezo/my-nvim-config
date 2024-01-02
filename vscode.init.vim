@@ -4,8 +4,6 @@ set number
 set relativenumber
 " map leader to Space
 let mapleader = " "
-" map escape to kj
-inoremap kj <ESC>
 " cancel search term highlights
 nnoremap <leader>j :noh<CR>
 " open quicklist
