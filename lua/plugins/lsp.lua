@@ -7,6 +7,9 @@ return {
       -- npm install -g typescript-language-server typescript
       lspconfig.tsserver.setup {}
 
+      -- npm i -g pyright
+      lspconfig.pyright.setup {}
+
       -- brew install rust-analyzer
       lspconfig.rust_analyzer.setup {}
 
