@@ -12,6 +12,7 @@ o.expandtab = true
 
 -- indentation by file type
 vim.cmd([[
+  autocmd BufRead,BufNewFile Tiltfile,*.tiltfile set filetype=python
   autocmd Filetype go setlocal ts=8 sw=8 sts=8 expandtab
   autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 expandtab
   autocmd Filetype json setlocal ts=4 sw=4 sts=4 expandtab
