@@ -11,7 +11,19 @@ return {
       lspconfig.pyright.setup {}
 
       -- brew install rust-analyzer
-      lspconfig.rust_analyzer.setup {}
+      -- cargo install ra-multiplex (--version 0.2.3)
+      -- ra-multiplex server
+      -- docs: https://github.com/pr2502/ra-multiplex
+      lspconfig.rust_analyzer.setup {
+        cmd = vim.lsp.rpc.connect("127.0.0.1", 27631),
+        init_options = {
+          lspMux = {
+            version = "1",
+            method = "connect",
+            server = "rust-analyzer",
+          },
+        },
+      }
 
       lspconfig.gopls.setup {}
 
