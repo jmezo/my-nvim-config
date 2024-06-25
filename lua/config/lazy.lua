@@ -1,5 +1,11 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
+-- lazy.nvim commands
+-- :Lazy help
+-- :Lazy check
+-- :Lazy install
+-- :Lazy update
+-- :Lazy clean
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
