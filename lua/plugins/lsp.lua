@@ -5,7 +5,7 @@ return {
       local lspconfig = require('lspconfig')
 
       -- npm install -g typescript-language-server typescript
-      lspconfig.tsserver.setup {}
+      lspconfig.ts_ls.setup {}
 
       -- npm i -g pyright
       lspconfig.pyright.setup {}
