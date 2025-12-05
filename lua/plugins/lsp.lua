@@ -2,19 +2,19 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require('lspconfig')
-
       -- npm install -g typescript-language-server typescript
-      lspconfig.ts_ls.setup {}
+      vim.lsp.config('ts_ls', {})
+      vim.lsp.enable('ts_ls')
 
       -- npm i -g pyright
-      lspconfig.pyright.setup {}
+      vim.lsp.config('pyright', {})
+      vim.lsp.enable('pyright')
 
       -- brew install rust-analyzer
       -- cargo install ra-multiplex (--version 0.2.3)
       -- ra-multiplex server
       -- docs: https://github.com/pr2502/ra-multiplex
-      lspconfig.rust_analyzer.setup {
+      vim.lsp.config('rust_analyzer', {
         -- cmd = vim.lsp.rpc.connect("127.0.0.1", 27631),
         -- init_options = {
         --   lspMux = {
@@ -23,12 +23,14 @@ return {
         --     server = "rust-analyzer",
         --   },
         -- },
-      }
+      })
+      vim.lsp.enable('rust_analyzer')
 
-      lspconfig.gopls.setup {}
+      vim.lsp.config('gopls', {})
+      vim.lsp.enable('gopls')
 
       -- brew install lua-language-server
-      lspconfig.lua_ls.setup {
+      vim.lsp.config('lua_ls', {
         settings = {
           Lua = {
             runtime = {
@@ -55,7 +57,8 @@ return {
             },
           },
         },
-      }
+      })
+      vim.lsp.enable('lua_ls')
 
       -- Use LspAttach autocommand to only map the following keys
       -- after the language server attaches to the current buffer
@@ -66,7 +69,7 @@ return {
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-          vim.lsp.diagnostic.opts = { virtual_text = false }
+          vim.diagnostic.config({ virtual_text = false })
 
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
