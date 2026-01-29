@@ -20,7 +20,7 @@ vim.cmd([[
   nnoremap <leader>cp :cp<cr>
 ]])
 
-local create_daily_note = function(notes_root, template_path)
+local create_daily_note = function(notes_root, template_path, day_offset)
   -- Check if notes root exists
   if vim.fn.isdirectory(notes_root) == 0 then
     vim.notify("Notes root does not exist: " .. notes_root, vim.log.levels.ERROR)
@@ -33,11 +33,12 @@ local create_daily_note = function(notes_root, template_path)
     return
   end
 
-  local date = os.date("*t")
+  local time = os.time() + (day_offset or 0) * 86400
+  local date = os.date("*t", time)
   local year = string.format("%04d", date.year)
   local month = string.format("%02d", date.month)
   local day = string.format("%02d", date.day)
-  local weekday = os.date("%a")
+  local weekday = os.date("%a", time)
   local date_str = string.format("%s-%s-%s-%s", year, month, day, weekday)
 
   local filename = string.format("%s.md", date_str)
@@ -69,10 +70,12 @@ local create_daily_note = function(notes_root, template_path)
   vim.cmd("edit " .. full_path)
 end
 
-vim.api.nvim_create_user_command("DailyMe", function()
-  create_daily_note("./notes/me/days", "./notes/_templates/me-days.md")
-end, {})
+vim.api.nvim_create_user_command("DailyMe", function(opts)
+  local offset = opts.args ~= "" and tonumber(opts.args) or 0
+  create_daily_note("./notes/me/days", "./notes/_templates/me-days.md", offset)
+end, { nargs = "?" })
 
-vim.api.nvim_create_user_command("DailyZgen", function()
-  create_daily_note("./notes/zgen/days", "./notes/_templates/zgen-days.md")
-end, {})
+vim.api.nvim_create_user_command("DailyZgen", function(opts)
+  local offset = opts.args ~= "" and tonumber(opts.args) or 0
+  create_daily_note("./notes/zgen/days", "./notes/_templates/zgen-days.md", offset)
+end, { nargs = "?" })
